@@ -36,10 +36,10 @@ export default function Navbar() {
         <Grid item xs={6} sx={{ position: "relative", right: "-40px" }}>
           <Grid
             container
-            spacing={4}
+            spacing={2}
             sx={{ position: "relative", top: "12px" }}
           >
-            <Grid item>
+            <Grid item xs={2.4}>
               <Link
                 component={RouterLink}
                 to="/"
@@ -50,18 +50,19 @@ export default function Navbar() {
                 Home
               </Link>
             </Grid>
-            <Grid item>
+            <Grid item xs={2.4}>
               <Link
                 component={RouterLink}
                 to="/WhatWeDo"
                 underline="none"
                 color="black"
                 variant="body1"
+                sx={{ position: "relative", left: "-17px" }}
               >
                 What We Do
               </Link>
             </Grid>
-            <Grid item>
+            <Grid item xs={2.4}>
               <Link
                 component={RouterLink}
                 to="/Service"
@@ -72,7 +73,7 @@ export default function Navbar() {
                 Service
               </Link>
             </Grid>
-            <Grid item>
+            <Grid item xs={2.4}>
               <Link
                 component={RouterLink}
                 to="/Project"
@@ -83,18 +84,7 @@ export default function Navbar() {
                 Project
               </Link>
             </Grid>
-            <Grid item>
-              <Link
-                component={RouterLink}
-                to="/Project"
-                underline="none"
-                color="black"
-                variant="body1"
-              >
-                Project
-              </Link>
-            </Grid>
-            <Grid item>
+            <Grid item xs={2.4}>
               <Link
                 component={RouterLink}
                 to="/Contact"
