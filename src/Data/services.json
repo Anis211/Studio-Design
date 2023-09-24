@@ -3,44 +3,52 @@
     {
       "id": 0,
       "header": "Business idea planning",
-      "body": "We will help with creating your own custom business plan, that will help you to be successfull in the world of enterpreneurs!"
+      "body": "We will help with creating your own custom business plan, that will help you to be successfull in the world of enterpreneurs!",
+      "icon": "src/images/box.png"
     },
     {
       "id": 1,
       "header": "Developing web-site and app",
-      "body": "Our team will develop highly productive and sustainable web-page and app for your business. They also will maintain and fix bugs for monthly payment"
+      "body": "Our team will develop highly productive and sustainable web-page and app for your business. They also will maintain and fix bugs for monthly payment",
+      "icon": "src/images/icons8-code-91.png"
     },
     {
       "id": 2,
       "header": "Finance planning system",
-      "body": "Our professional economists and data scientist will help you with analysing and making decisions on your companies financial problems!"
+      "body": "Our professional economists and data scientist will help you with analysing and making decisions on your companies financial problems!",
+      "icon": "src/images/icons8-wallet-100.png"
     },
     {
       "id": 3,
       "header": "Market analysis project",
-      "body": "Our team full of specialists will do all analysis for market state and send you on email/whatsApp/facebook or whatever messenger you prefer!"
+      "body": "Our team full of specialists will do all analysis for market state and send you on email/whatsApp/facebook or whatever messenger you prefer!",
+      "icon": "src/images/icons8-chart-64.png"
     }
   ],
   "icons": [
     {
       "id": 0,
       "url": "src/images/box.png",
-      "background": "#F1F7FF"
+      "background": "#F1F7FF",
+      "link": "/business-idea"
     },
     {
       "id": 1,
       "url": "src/images/icons8-chart-64.png",
-      "background": "#DEFFEE"
+      "background": "#DEFFEE",
+      "link": "/market-analysis"
     },
     {
       "id": 2,
       "url": "src/images/icons8-code-91.png",
-      "background": "#FFF2F8"
+      "background": "#FFF2F8",
+      "link": "/webpage-app-development"
     },
     {
       "id": 3,
       "url": "src/images/icons8-wallet-100.png",
-      "background": "#FFF7E3"
+      "background": "#FFF7E3",
+      "link": "/finance-planning"
     }
   ]
 }

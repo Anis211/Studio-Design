@@ -1,8 +1,17 @@
-import { Box, CircularProgress, Typography, Button, Grow } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  Typography,
+  Button,
+  Grow,
+  Link,
+  Paper,
+} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../../theme.js";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Service() {
   const client = axios.create({
@@ -104,7 +113,16 @@ export default function Service() {
   }
 
   return (
-    <Box className="Services" sx={{ height: "850px", width: "100%" }}>
+    <Paper
+      elevation={3}
+      sx={{
+        height: "1050px",
+        width: "1200px",
+        paddingTop: "20px",
+        borderRadius: "25px",
+        margin: "80px 0px 50px 80px",
+      }}
+    >
       <ThemeProvider theme={theme}>
         <Box
           className="services"
@@ -112,8 +130,9 @@ export default function Service() {
             display: "flex",
             flexDirection: "column",
             gap: "30px",
-            marginTop: "100px",
-            paddingLeft: "250px",
+            position: "absolute",
+            marginTop: "80px",
+            marginLeft: "150px",
           }}
         >
           {dataServices?.data.map((service) => (
@@ -129,7 +148,14 @@ export default function Service() {
                 }}
               >
                 <Typography variant="header" sx={{ marginBottom: "20px" }}>
-                  {service.header}
+                  {service.header}{" "}
+                  <img
+                    src={service.icon}
+                    style={{
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  />
                 </Typography>
                 <Typography variant="bodyParagraph">{service.body}</Typography>
               </Box>
@@ -142,35 +168,46 @@ export default function Service() {
             display: "flex",
             flexDirection: "row",
             gap: "30px",
-            marginLeft: "450px",
+            position: "absolute",
+            marginLeft: "330px",
+            marginTop: "850px",
           }}
         >
           {data.data.map((icon) => {
             const background = icon.background;
             return (
               <>
-                <Button
-                  className="iconLink"
-                  variant="expanded"
+                <Paper
+                  elevation={3}
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    textAlign: "center",
-                    backgroundColor: background,
                     borderRadius: "20px",
-                    padding: "20px",
                   }}
                 >
-                  <img
-                    src={icon.url}
-                    style={{ width: "74px", height: "74px" }}
-                  />
-                </Button>
+                  <Button
+                    className="iconLink"
+                    variant="expanded"
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      textAlign: "center",
+                      backgroundColor: background,
+                      borderRadius: "20px",
+                      padding: "20px",
+                    }}
+                  >
+                    <Link component={RouterLink} to={`/service${icon.link}`}>
+                      <img
+                        src={icon.url}
+                        style={{ width: "74px", height: "74px" }}
+                      />
+                    </Link>
+                  </Button>
+                </Paper>
               </>
             );
           })}
         </Box>
       </ThemeProvider>
-    </Box>
+    </Paper>
   );
 }
