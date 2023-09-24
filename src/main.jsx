@@ -7,9 +7,13 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./Pages/Home.jsx";
+import { QueryClient, QueryClientProvider } from "react-query";
+import Home from "./Pages/Home/Home.jsx";
+import Service from "./Pages/Service/Service";
 import Navbar from "./global/Navbar";
 import Footer from "./global/Footer";
+
+const queryClient = new QueryClient();
 
 const browserRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +28,7 @@ const browserRouter = createBrowserRouter(
         }
       >
         <Route index element={<Home />} />
+        <Route path="/service" element={<Service />} />
       </Route>
     </>
   )
@@ -31,6 +36,8 @@ const browserRouter = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={browserRouter} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={browserRouter} />
+    </QueryClientProvider>
   </React.StrictMode>
 );

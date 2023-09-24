@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "json-server --watch ./src/Data/services.json --port 4000"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -15,9 +16,12 @@
     "@mui/icons-material": "^5.14.8",
     "@mui/joy": "^5.0.0-beta.5",
     "@mui/material": "^5.14.8",
+    "axios": "^1.5.0",
+    "json-server": "^0.17.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-email": "1.9.4",
+    "react-query": "^3.39.3",
     "react-router-dom": "^6.15.0",
     "zustand": "^4.4.1"
   },

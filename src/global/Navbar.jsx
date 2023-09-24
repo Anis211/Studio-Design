@@ -70,7 +70,7 @@ export default function Navbar() {
                 color="black"
                 variant="body1"
               >
-                Service
+                Services
               </Link>
             </Grid>
             <Grid item xs={2.4}>

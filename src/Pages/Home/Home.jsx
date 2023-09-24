@@ -17,13 +17,13 @@ import {
 import { ThemeProvider } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import * as React from "react";
-import { theme } from "../theme.js";
+import { theme } from "../../theme.js";
 import Dots from "./HomeDetails/background/Dots.jsx";
 import DotsLight from "./HomeDetails/background/DotsLight.jsx";
 import OutlinedDots from "./HomeDetails/background/OutlinedDots.jsx";
 import ShortDotsLight from "./HomeDetails/background/ShortDotsLight.jsx";
-import { useClientsStore } from "../Data/happyClientsData.js";
-import { useEmailsStore } from "../Data/emailData.js";
+import { useClientsStore } from "../../Data/happyClientsData.js";
+import { useEmailsStore } from "../../Data/emailData.js";
 
 export default function Home() {
   const clientsArray = useClientsStore((state) => state.clients);
@@ -180,7 +180,10 @@ export default function Home() {
               }}
             />
           </Box>
-          <Box className="Our Client" sx={{ marginLeft: "55px" }}>
+          <Box
+            className="Our Client"
+            sx={{ marginLeft: "55px", width: "1300px" }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={3}>
                 <Box
@@ -207,6 +210,7 @@ export default function Home() {
                     flexDirection: "row",
                     position: "relative",
                     bottom: "-50px",
+                    left: "90px",
                   }}
                 >
                   <img
