@@ -1,4 +1,4 @@
-import { Grid, Box, Typography, Divider, Icon } from "@mui/material";
+import { Grid, Box, Typography, Divider } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "../theme";
 
@@ -81,15 +81,9 @@ export default function Footer() {
                   gap: "16px",
                 }}
               >
-                <Icon sx={{ width: "36px", height: "36px" }}>
-                  <img src="src/images/facebook.jpg" />
-                </Icon>
-                <Icon sx={{ width: "36px", height: "36px" }}>
-                  <img src="src/images/twitter.jpg" />
-                </Icon>
-                <Icon sx={{ width: "36px", height: "36px" }}>
-                  <img src="src/images/linkedin.jpg" />
-                </Icon>
+                <img src="src/images/facebook.jpg" />
+                <img src="src/images/twitter.jpg" />
+                <img src="src/images/linkedin.jpg" />
               </Box>
             </Box>
           </Grid>

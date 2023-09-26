@@ -8,9 +8,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import Home from "./Pages/Home/Home.jsx";
 import Service from "./Pages/Service/Service";
-import Idea from "./Pages/Service/Services/BusinessIdea";
+import Details from "./Pages/Service/ServiceDetails";
 import Navbar from "./global/Navbar";
 import Footer from "./global/Footer";
 
@@ -30,7 +31,7 @@ const browserRouter = createBrowserRouter(
       >
         <Route index element={<Home />} />
         <Route path="/service" element={<Service />} />
-        <Route path="/service/business-idea" element={<Idea />} />
+        <Route path="/service/:serviceId" element={<Details />} />
       </Route>
     </>
   )
@@ -40,6 +41,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={browserRouter} />
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   </React.StrictMode>
 );

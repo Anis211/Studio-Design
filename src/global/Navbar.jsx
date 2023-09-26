@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Grid, Box, Typography, Link } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { NavLink as RouterLink } from "react-router-dom";
 
 export default function Navbar() {
   return (

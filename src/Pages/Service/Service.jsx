@@ -18,38 +18,22 @@ export default function Service() {
     baseURL: "http://localhost:4000/",
   });
 
-  const {
-    isLoading: isLoadingServices,
-    data: dataServices,
-    error: errorServices,
-    isError: isErrorServices,
-  } = useQuery(
+  const params = {
+    cacheTime: 5000,
+    staleTime: 10000,
+    refetchOnWindowFocus: true,
+    refetchInterval: 10000,
+  };
+
+  const { isLoading, data, error, isError } = useQuery(
     "services",
     () => {
       return client.get("services");
     },
-    {
-      cacheTime: 5000,
-      staleTime: 10000,
-      refetchOnWindowFocus: true,
-      refetchInterval: 10000,
-    }
+    params
   );
 
-  const { data, isLoading, isError, error } = useQuery(
-    "icons",
-    () => {
-      return client.get("icons");
-    },
-    {
-      cacheTime: 5000,
-      staleTime: 10000,
-      refetchOnWindowFocus: true,
-      refetchInterval: 10000,
-    }
-  );
-
-  if (isLoadingServices && isLoading) {
+  if (isLoading) {
     return (
       <ThemeProvider theme={theme}>
         <Grow in={true} timeout={1000}>
@@ -74,7 +58,7 @@ export default function Service() {
               size="30px"
               sx={{ marginTop: "10px" }}
             >
-              {isLoadingServices ? "Loading Services..." : "Loading Icons..."}
+              {"Loading Services..."}
             </Typography>
           </Box>
         </Grow>
@@ -82,7 +66,7 @@ export default function Service() {
     );
   }
 
-  if (isErrorServices || isError) {
+  if (isError) {
     return (
       <ThemeProvider theme={theme}>
         <Box
@@ -101,9 +85,7 @@ export default function Service() {
           }}
         >
           <Typography variant="header">Error</Typography>
-          <Typography variant="bodyParagraph">
-            {isErrorServices ? errorServices.message : error.message}
-          </Typography>
+          <Typography variant="bodyParagraph">{error.message}</Typography>
           <Typography variant="bodyParagraph">
             (Try to refresh the page!)
           </Typography>
@@ -135,7 +117,7 @@ export default function Service() {
             marginLeft: "150px",
           }}
         >
-          {dataServices?.data.map((service) => (
+          {data?.data.map((service) => (
             <>
               <Box
                 className="service"
@@ -173,8 +155,8 @@ export default function Service() {
             marginTop: "850px",
           }}
         >
-          {data.data.map((icon) => {
-            const background = icon.background;
+          {data?.data.map((service) => {
+            const background = service.background;
             return (
               <>
                 <Paper
@@ -195,9 +177,9 @@ export default function Service() {
                       padding: "20px",
                     }}
                   >
-                    <Link component={RouterLink} to={`/service${icon.link}`}>
+                    <Link component={RouterLink} to={`/service/${service.id}`}>
                       <img
-                        src={icon.url}
+                        src={service.icon}
                         style={{ width: "74px", height: "74px" }}
                       />
                     </Link>
