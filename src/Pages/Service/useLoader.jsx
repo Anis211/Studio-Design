@@ -1,15 +1,16 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 
-const client = axios.create({
+export const client = axios.create({
   baseURL: "http://localhost:4000/",
 });
 
-const params = {
+export const params = {
   cacheTime: 5000,
   staleTime: 10000,
   refetchOnWindowFocus: true,
   refetchInterval: 10000,
+  keepPreviousData: true,
 };
 
 export function useServiceLoader() {

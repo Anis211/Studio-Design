@@ -3,14 +3,18 @@ import { useParams } from "react-router-dom";
 import { theme } from "../../theme";
 import { ThemeProvider } from "@emotion/react";
 import { useQuery } from "react-query";
-import axios from "axios";
+import { client, params } from "./useLoader";
 
 export default function Details() {
   const { serviceId } = useParams();
 
-  const { data } = useQuery(`service:${serviceId}`, () => {
-    return axios.get(`http://localhost:4000/services/${serviceId}`);
-  });
+  const { data } = useQuery(
+    `service:${serviceId}`,
+    () => {
+      return client.get(`services/${serviceId}`);
+    },
+    params
+  );
 
   return (
     <ThemeProvider theme={theme}>
@@ -19,7 +23,7 @@ export default function Details() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: "40px",
+          gap: "30px",
           marginTop: "80px",
           marginLeft: "100px",
         }}
